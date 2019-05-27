@@ -19,6 +19,16 @@
 	function ltompg() {
 		setResult(document.getElementById("ltompg").value, " Mpg");
 	}
+
+	/* Calculate car loan */
+	function loan() {
+		var P = parseFloat(document.getElementById("loanP").value);
+		var r = parseFloat(document.getElementById("loanR").value);
+		var n = parseFloat(document.getElementById("loanN").value);
+		var t = parseFloat(document.getElementById("loanT").value);
+		document.getElementById("loanResult").innerHTML
+			= P * Math.pow(1 + r/n, n * t);
+	}
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -59,6 +69,13 @@ L/100Km to Mpg:<input type="text" id="ltompg">
 <button type="button" onclick="ltompg()">Convert</button>
 <br>
 <p id="result"></p>
+<h1>Car Loan Calculator</h1>
+Principal Amount (initial investment): <input type="text" id="loanP"><br>
+Annual nominal interest rate (as a decimal): <input type="text" id="loanR"><br>
+Number of times interest compounded per year: <input type="text" id="loanN"><br>
+Number of years: <input type="text" id="loanT"><br>
+<button type="button" onclick="loan()">Calculate Loan</button>
+<p id="loanResult"></p>
 </div>
 
   <!-- Footer -->
@@ -75,3 +92,4 @@ L/100Km to Mpg:<input type="text" id="ltompg">
 
 </body>
 </html>
+
