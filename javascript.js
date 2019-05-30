@@ -1,4 +1,4 @@
-
+//clock
 function updateTime() {
 	var currentTime = new Date ( );
 
@@ -20,3 +20,4 @@ function updateTime() {
 
 window.onload = updateTime;
 window.setInterval(updateTime, 1000);
+//clock

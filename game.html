@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="800" height="800">
+</body>
+
+<script>
+
+
+
+
+var x = 10;
+var y= 20;
+function test() {
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, 1000, 1000);
+
+  ctx.beginPath();
+	ctx.rect(x, y, 150, 100);
+  ctx.fillStyle= "red";
+	ctx.fill();
+}
+window.setInterval(test, 16);
+
+//keyboard
+function kbd(e){
+  if(e.keyCode==37/*Left*/ || e.keyCode == 65/*A*/){
+    x=x-20;
+  }
+
+  if(e.keyCode==39/*Right*/ || e.keyCode == 68/*D*/){
+    x=x+20;
+  }
+  if(e.keyCode==38/*Up*/ || e.keyCode == 87/*W*/){
+    y=y-20;
+  }
+  if(e.keyCode==40/*Down*/ || e.keyCode == 83/*S*/){
+    y=y+20;
+  }
+}
+document.addEventListener('keydown', kbd);
+
+
+
+
+
+</script>
+
+
+</html>
