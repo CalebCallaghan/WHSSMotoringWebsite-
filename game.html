@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="800" height="800">
+</body>
+
+<script>
+
+
+
+
+var x = 10;
+var y= 20;
+var w = 50;
+var h = 50;
+var left=false;
+var right=false;
+var up=false;
+var down=false;
+
+var objects = [ ];
+
+function newobject(x, y, color, width) {
+	this.x = x;
+	this.y = y;
+	this.w = width;
+	this.h = 40;
+	this.color = color;
+}
+/*enemies*/
+objects.push(new newobject(200, 200, "red",40));
+
+objects.push(new newobject(100, 100, "red",40));
+
+objects.push(new newobject(20 ,700, "green",750));
+
+
+
+function test() {
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, 1000, 1000);
+
+
+
+  ctx.beginPath();
+	ctx.rect(x, y, 50, 50);
+  ctx.fillStyle= "black";
+	ctx.fill();
+
+	for (var o in objects)
+	{
+		var obj = objects[o];
+		ctx.beginPath();
+		ctx.rect(obj.x, obj.y, obj.w, obj.h);
+		ctx.fillStyle= obj.color;
+		ctx.fill();
+		if (x+w>obj.x && x<obj.x+obj.w
+				&& y+h>obj.y && y<obj.y+obj.h)
+		{
+			x=0; y=0;
+		}
+
+	}
+
+	/* update */
+	if (up) {		y=y-10; }
+  if (down) { y= y+10; }
+	if (right) {x= x+10 }
+	if (left)  { x= x-10 }
+}
+window.setInterval(test, 16);
+
+//keyboard
+function kbd(e){
+  if(e.keyCode==37/*Left*/ || e.keyCode == 65/*A*/){
+    left=true;
+  }
+
+  if(e.keyCode==39/*Right*/ || e.keyCode == 68/*D*/){
+    right=true;
+  }
+  if(e.keyCode==38/*Up*/ || e.keyCode == 87/*W*/){
+    up=true;
+  }
+  if(e.keyCode==40/*Down*/ || e.keyCode == 83/*S*/){
+    down=true;
+  }
+}
+document.addEventListener('keydown', kbd);
+
+//keyboard2
+function kbdup(e){
+  if(e.keyCode==37/*Left*/ || e.keyCode == 65/*A*/){
+    left=false;
+  }
+
+  if(e.keyCode==39/*Right*/ || e.keyCode == 68/*D*/){
+    right=false;
+  }
+  if(e.keyCode==38/*Up*/ || e.keyCode == 87/*W*/){
+    up=false;
+  }
+  if(e.keyCode==40/*Down*/ || e.keyCode == 83/*S*/){
+    down=false;
+  }
+}
+document.addEventListener('keyup', kbdup);
+
+
+
+
+</script>
+
+
+</html>
