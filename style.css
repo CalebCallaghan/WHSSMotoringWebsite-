@@ -11,13 +11,11 @@
   width: 140px;
   /* position: fixed; */
   position: fixed;
-  z-index: -1;
   top: 0;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
   padding-top: 20px;
-
 }
 
 .sidenav a {
@@ -201,3 +199,6 @@ canvas {
 	background-color: #f1f1f1;
 }
 /*game*/
+footer {
+	z-index: 10;
+}
